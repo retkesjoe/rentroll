@@ -1,0 +1,32 @@
+
+AddCharset UTF-8 .html .htm .php .txt
+
+AddType video/ogg .ogv
+Addtype video/webm .webm
+Addtype video/mp4 .mp4
+
+AddType audio/mpeg mp3
+AddType audio/mp4 m4a
+AddType audio/ogg ogg
+AddType audio/ogg oga
+AddType audio/webm webma
+AddType audio/wav wav
+ 
+AddType video/mp4 m4v
+AddType video/webm webmv
+AddType text/x-component htc
+
+Options +Indexes
+DirectoryIndex /index.php
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/favicon.ico$
+RewriteCond %{REQUEST_URI} !/*.js$
+RewriteCond %{REQUEST_URI} !/*.css$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} !^/images
+RewriteRule .* /index.php [L]
+
+ServerSignature Off
